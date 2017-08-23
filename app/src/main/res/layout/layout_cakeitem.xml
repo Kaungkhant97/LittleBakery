@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_margin="@dimen/margin_medium"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+     >
+
+<ImageView
+    android:id="@+id/cake_image"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    tools:src ="@drawable/mmdrink"/>
+<TextView
+    android:id="@+id/cake_name"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_small"
+    android:textSize="@dimen/text_small"
+    tools:text="Capuccino"/>
+    <TextView
+        android:id="@+id/cake_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_small"
+        android:textSize="@dimen/text_smaller"
+        tools:text="1600"/>
+</LinearLayout>
+
+</android.support.v7.widget.CardView>

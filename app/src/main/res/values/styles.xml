@@ -1,11 +1,53 @@
 <resources>
 
     <!-- Base application theme. -->
+    <!-- <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">-->
+
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:actionBarStyle">@color/cardview_dark_background</item>
+        <item name="android:titleTextStyle">@color/cardview_dark_background</item>
+        <item name="android:textColor">@color/cardview_dark_background</item>
+
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AppTheme.TextAppearance.CategoryItem" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textSize">@dimen/text_regular</item>
+    </style>
+
+    <style name="MyToolbar" parent="@style/ThemeOverlay.AppCompat">
+        <!-- Title text -->
+        <item name="android:textColorPrimary">@color/cardview_dark_background</item>
+
+        <!-- Title color in AppCompat.Light  -->
+        <item name="android:textColorPrimaryInverse">@color/cardview_dark_background</item>
+
+        <!-- Menu text-->
+        <item name="actionMenuTextColor">@color/cardview_dark_background</item>
+        <!-- Overflow -->
+        <item name="android:textColorSecondary">@color/cardview_dark_background</item>
+        <!-- This will change drawer icon -->
+        <item name="drawerArrowStyle">@color/cardview_dark_background</item>
+        <!-- background of the  -->
+        <!-- <item name="android:background">@color/color_primary</item> -->
+    </style>
+
+
+    <style name="WhiteDrawerIconStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@android:color/white</item>
     </style>
 
 </resources>
