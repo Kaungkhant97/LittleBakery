@@ -1,17 +1,18 @@
 package com.kaungkhantthu.xyz.littlebakery.recyclerView;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.DrawableRes;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.kaungkhantthu.xyz.littlebakery.OnListFragmentInteractionListener;
+import com.kaungkhantthu.xyz.littlebakery.util.OnListFragmentInteractionListener;
 import com.kaungkhantthu.xyz.littlebakery.R;
 import com.kaungkhantthu.xyz.littlebakery.entity.Category;
 
@@ -48,7 +49,8 @@ public class CategoryItemRecyclerAdapter extends RecyclerView.Adapter<CategoryIt
         Category category = categoryitemArrayList.get(position);
 
         RequestOptions requestOptions = new RequestOptions();
-        requestOptions.placeholder(R.mipmap.ic_launcher);
+        requestOptions.placeholder(new ColorDrawable(Color.parseColor("#EFEFEF")));
+        requestOptions.error(new ColorDrawable(Color.parseColor("#000000")));
 
         Glide.with(context)
                 .setDefaultRequestOptions(requestOptions)
@@ -60,7 +62,7 @@ public class CategoryItemRecyclerAdapter extends RecyclerView.Adapter<CategoryIt
                 if (null != mListener) {
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
-                    mListener.onListFragmentInteraction(holder.category);
+                    mListener.onListItemClick(holder.category,v);
                 }
             }
         });
@@ -98,20 +100,15 @@ public class CategoryItemRecyclerAdapter extends RecyclerView.Adapter<CategoryIt
 
 
         switch (catid){
-            case 1: return R.drawable.birthday_cake;
 
-            case 2:return R.drawable.cake;
 
-            case 3:return R.drawable.donut;
-
-            case 4:return R.drawable.croissant;
-
-            case 5:return R.drawable.cupcake;
-
-            case 6:return R.drawable.bread;
-
-            case 7:return R.drawable.cookie;
-
+            case 1:return R.drawable.cake;
+            case 2:return R.drawable.donut;
+            case 3:return R.drawable.cupcake;
+            case 4:return R.drawable.bread;
+            case 5:return R.drawable.cookie;
+            case 6: return R.drawable.birthday_cake;
+            case 7:return R.drawable.croissant;
             default:return R.drawable.cake;
 
         }

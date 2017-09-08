@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/margin_medium"
+    android:orientation="vertical"
+    tools:context="com.kaungkhantthu.xyz.littlebakery.activity.HelpActivity">
+<include layout= "@layout/mtoolbar"/>
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:src="@mipmap/ic_launcher"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_regular_2"
+        android:layout_margin="@dimen/margin_medium_2"
+        android:text="Little Bakery"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_regular_2"
+        android:layout_marginLeft="@dimen/margin_medium_2"
+        android:text="Version 1.0"/>
+
+<Space
+    android:layout_width="wrap_content"
+    android:layout_height="20dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_regular_2"
+        android:layout_marginLeft="@dimen/margin_medium_2"
+        android:text="Contact us"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_regular_2"
+        android:autoLink="phone"
+        android:layout_marginLeft="@dimen/margin_medium_2"
+        android:text="095002123"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_regular_2"
+        android:autoLink="phone"
+        android:layout_marginLeft="@dimen/margin_medium_2"
+        android:text="kkhantthu97@gmail.com"/>
+</LinearLayout>

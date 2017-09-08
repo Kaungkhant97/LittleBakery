@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#efebe9</color>
+    <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">#616161</color>
-    <color name="colorAccent">#4e342e</color>
+    <color name="colorAccent">#ffd54f</color>
     <color name="touch_effect">#d7ccc8</color>
     <color name="category_cardBackground">#eeeeee</color>
+    <color name="transparent">#00000000</color>
+    <color name="grey">#FEFEFEFF</color>
+
+    <color name="brown">#6B330F</color>
+    <color name="browner">#4e342e</color>
+    <color name="cyan">#8DD1C9</color>
+    <color name="pink">#FBD6E0</color>
+
+
+
 
 
 </resources>

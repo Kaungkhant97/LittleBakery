@@ -1,6 +1,8 @@
 package com.kaungkhantthu.xyz.littlebakery.recyclerView;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +13,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
-import com.kaungkhantthu.xyz.littlebakery.OnListFragmentInteractionListener;
+import com.kaungkhantthu.xyz.littlebakery.util.OnListFragmentInteractionListener;
 import com.kaungkhantthu.xyz.littlebakery.R;
 import com.kaungkhantthu.xyz.littlebakery.entity.Cakeitem;
 
@@ -47,13 +49,13 @@ public class CakeItemRecyclerViewAdapter extends RecyclerView.Adapter<CakeItemRe
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = cakeitemArrayList.get(position);
         Cakeitem item = cakeitemArrayList.get(position);
-        holder.mcakepriceView.setText(item.getPrice()+"");
+        holder.mcakepriceView.setText(item.getPrice()+"kyat");
         holder.mCakenameVIew.setText(item.getName()+"");
 
 
         RequestOptions requestOptions = new RequestOptions();
-        requestOptions.placeholder(R.drawable.cookie);
-        requestOptions.error(R.drawable.birthday_cake);
+        requestOptions.placeholder(new ColorDrawable(Color.parseColor("#EFEFEF")));
+        requestOptions.error(new ColorDrawable(Color.parseColor("#000000")));
         requestOptions.diskCacheStrategy(DiskCacheStrategy.ALL);
 
 
@@ -68,7 +70,7 @@ public class CakeItemRecyclerViewAdapter extends RecyclerView.Adapter<CakeItemRe
                 if (null != mListener) {
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
-                    mListener.onListFragmentInteraction(holder.mItem);
+                    mListener.onListItemClick(holder.mItem,v);
                 }
             }
         });
@@ -88,6 +90,8 @@ public class CakeItemRecyclerViewAdapter extends RecyclerView.Adapter<CakeItemRe
         cakeitemArrayList.addAll(cakeItemList);
     }
 
+
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
         public final ImageView mCakeImageView;
@@ -99,9 +103,9 @@ public class CakeItemRecyclerViewAdapter extends RecyclerView.Adapter<CakeItemRe
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mCakeImageView = (ImageView) view.findViewById(R.id.cake_image);
-            mCakenameVIew = (TextView) view.findViewById(R.id.cake_name);
-            mcakepriceView = (TextView) view.findViewById(R.id.cake_price);
+            mCakeImageView = (ImageView) view.findViewById(R.id.img_cake);
+            mCakenameVIew = (TextView) view.findViewById(R.id.txt_name);
+            mcakepriceView = (TextView) view.findViewById(R.id.txt_price);
 
 
         }

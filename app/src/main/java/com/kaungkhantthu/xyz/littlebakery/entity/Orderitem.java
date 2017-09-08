@@ -13,6 +13,15 @@ public class Orderitem extends RealmObject{
     private String cakeImgurl;
     private int quantity;
     private int price;
+    private boolean isOrdered = false;
+
+    public boolean isOrdered() {
+        return isOrdered;
+    }
+
+    public void setOrdered(boolean ordered) {
+        isOrdered = ordered;
+    }
 
     public String getCakeId() {
         return cakeId;
@@ -40,6 +49,9 @@ public class Orderitem extends RealmObject{
 
     public int getPrice() {
         return price;
+    }
+    public int getTotalprice(){
+        return this.price * this.quantity;
     }
 
     public void setPrice(int price) {

@@ -3,9 +3,10 @@ package com.kaungkhantthu.xyz.littlebakery.fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,9 +17,9 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.kaungkhantthu.xyz.littlebakery.Constants;
-import com.kaungkhantthu.xyz.littlebakery.DetailActivity;
-import com.kaungkhantthu.xyz.littlebakery.OnListFragmentInteractionListener;
+import com.kaungkhantthu.xyz.littlebakery.util.Constants;
+import com.kaungkhantthu.xyz.littlebakery.activity.DetailActivity;
+import com.kaungkhantthu.xyz.littlebakery.util.OnListFragmentInteractionListener;
 import com.kaungkhantthu.xyz.littlebakery.R;
 import com.kaungkhantthu.xyz.littlebakery.entity.Cakeitem;
 import com.kaungkhantthu.xyz.littlebakery.mvp.presenter.CakeitemPresenter;
@@ -47,6 +48,7 @@ public class CakeItemFragment extends Fragment implements CakeItemView,OnListFra
     private Button errorbtn;
     private CakeItemRecyclerViewAdapter adapter;
     private CakeitemPresenter cakePresenter;
+    private DividerItemDecoration mDividerItemDecoration;
 
 
     /**
@@ -73,7 +75,7 @@ public class CakeItemFragment extends Fragment implements CakeItemView,OnListFra
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_item_list, container, false);
+        View view = inflater.inflate(R.layout.fragmentlist, container, false);
 
         // Set the adapter
         recyler_cake = (RecyclerView) view.findViewById(R.id.recycler_item);
@@ -94,9 +96,13 @@ public class CakeItemFragment extends Fragment implements CakeItemView,OnListFra
     }
 
     private void initRecycler() {
-        recyler_cake.setLayoutManager(new GridLayoutManager(getContext(),2));
+        recyler_cake.setLayoutManager(new GridLayoutManager(getContext(),1));
+        mDividerItemDecoration = new DividerItemDecoration(recyler_cake.getContext(),
+                DividerItemDecoration.VERTICAL);
+        recyler_cake.addItemDecoration(mDividerItemDecoration);
         adapter = new CakeItemRecyclerViewAdapter(new ArrayList<Cakeitem>(),this,getContext());
         recyler_cake.setAdapter(adapter);
+
 
     }
 
@@ -145,25 +151,18 @@ public class CakeItemFragment extends Fragment implements CakeItemView,OnListFra
 
 
 
-    @Override
-    public void onListFragmentInteraction(Object item) {
 
+
+    @Override
+    public void onListItemClick(Object item, View v) {
         Cakeitem c = (Cakeitem)item;
-        Toast.makeText(this.getContext(), ""+c.getName(), Toast.LENGTH_SHORT).show();
+
         Intent i = new Intent(getActivity(),DetailActivity.class);
         i.putExtra(Constants.CAKEID,c.getId());
+
         startActivity(i);
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
+
 
 }

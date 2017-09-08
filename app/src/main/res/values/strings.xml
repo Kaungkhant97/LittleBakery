@@ -7,5 +7,17 @@
     <string name="category">category</string>
     <string name="cart">cart</string>
     <string name="title_cakeitem">items</string>
-    <string name="title_category">category</string>
+    <string name="title_category">Category</string>
+
+    <string name="facebook_app_id">357927854641451</string>
+    <string name="fb_login_protocol_scheme">fb357927854641451</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_profile">profile</string>
+    <string name="OrderCart">Order Cart</string>
+    <string name="title_activity_orderregister">Delivery Info</string>
+    <string name="title_orderhistroy">Order History</string>
+    <string name="title_about">About</string>
+
 </resources>

@@ -14,6 +14,8 @@ import com.kaungkhantthu.xyz.littlebakery.serializer.CategoryResponseSerializer;
 import com.kaungkhantthu.xyz.littlebakery.serializer.CategorySerializer;
 import com.kaungkhantthu.xyz.littlebakery.serializer.IngredientSerialzer;
 import com.kaungkhantthu.xyz.littlebakery.serializer.NutritionSerializer;
+import com.kaungkhantthu.xyz.littlebakery.serializer.OrderDetailSerialzer;
+import com.kaungkhantthu.xyz.littlebakery.serializer.OrderitemSerializer;
 
 
 import java.util.concurrent.TimeUnit;
@@ -73,6 +75,9 @@ public class RetrofitClient {
                     .registerTypeAdapter(Class.forName("io.realm.CategoryRealmProxy"), new CategorySerializer())
 
                     .registerTypeAdapter(Class.forName("io.realm.NutritionRealmProxy"), new NutritionSerializer())
+                    .registerTypeAdapter(Class.forName("io.realm.OrderDetailRealmProxy"), new OrderDetailSerialzer())
+                    .registerTypeAdapter(Class.forName("io.realm.OrderitemRealmProxy"), new OrderitemSerializer())
+
                     .registerTypeAdapter(new TypeToken<RealmList<Ingredient>>() {}.getType(),new IngredientSerialzer())
                     .create();
         } catch (Exception e) {

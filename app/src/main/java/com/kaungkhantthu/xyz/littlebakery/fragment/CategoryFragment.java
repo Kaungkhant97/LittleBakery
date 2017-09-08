@@ -1,10 +1,10 @@
 package com.kaungkhantthu.xyz.littlebakery.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,7 +15,11 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.kaungkhantthu.xyz.littlebakery.OnListFragmentInteractionListener;
+import com.kaungkhantthu.xyz.littlebakery.activity.CakebyCategoryActivity;
+import com.kaungkhantthu.xyz.littlebakery.activity.DetailActivity;
+import com.kaungkhantthu.xyz.littlebakery.entity.Cakeitem;
+import com.kaungkhantthu.xyz.littlebakery.util.Constants;
+import com.kaungkhantthu.xyz.littlebakery.util.OnListFragmentInteractionListener;
 import com.kaungkhantthu.xyz.littlebakery.R;
 import com.kaungkhantthu.xyz.littlebakery.entity.Category;
 import com.kaungkhantthu.xyz.littlebakery.mvp.presenter.CategoryPresenter;
@@ -66,7 +70,7 @@ public class CategoryFragment extends Fragment implements CategoryItemView,OnLis
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_item_list, container, false);
+        View view = inflater.inflate(R.layout.fragmentlist, container, false);
 
         // Set the adapter
         recyler_category = (RecyclerView) view.findViewById(R.id.recycler_item);
@@ -138,10 +142,16 @@ public class CategoryFragment extends Fragment implements CategoryItemView,OnLis
 
     }
 
+
+
     @Override
-    public void onListFragmentInteraction(Object item) {
+    public void onListItemClick(Object item, View v) {
         Category c =(Category)item;
-        Toast.makeText(getContext(), c.getName(), Toast.LENGTH_SHORT).show();
+
+
+        Intent i = new Intent(getContext(),CakebyCategoryActivity.class);
+        i.putExtra(Constants.CATID,c.getId());
+        startActivity(i);
     }
 
 
